@@ -1,7 +1,402 @@
-{
-    "versiculos": [
-        "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crer não pereça, mas tenha a vida eterna. - João 3:16",
-        "O Senhor é o meu pastor; nada me faltará. - Salmo 23:1",
-        "Porque eu bem sei os planos que estou planejando para vós, diz o Senhor, planos de paz, e não de mal, para vos dar um futuro e uma esperança. - Jeremias 29:11"
-    ]
-}
+[
+    {
+        "versiculo": "Confia no Senhor de todo o teu coração, e não te estribes no teu próprio entendimento. - Provérbios 3:5",
+        "reflexao": "Este versículo nos ensina a confiar plenamente em Deus, mesmo quando não compreendemos todas as circunstâncias da vida."
+    },
+    {
+        "versiculo": "Tudo posso naquele que me fortalece. - Filipenses 4:13",
+        "reflexao": "Deus nos dá força para enfrentar qualquer desafio. Nele, encontramos coragem e poder para vencer."
+    },
+    {
+        "versiculo": "Lâmpada para os meus pés é tua palavra, e luz para o meu caminho. - Salmo 119:105",
+        "reflexao": "A Palavra de Deus nos guia e ilumina nosso caminho, trazendo clareza e direção à nossa vida."
+    },
+    {
+        "versiculo": "O choro pode durar uma noite, mas a alegria vem pela manhã. - Salmo 30:5",
+        "reflexao": "Deus transforma nossas tristezas em alegria. A dor pode ser temporária, mas Sua fidelidade dura para sempre."
+    },
+    {
+        "versiculo": "Buscai primeiro o Reino de Deus e a sua justiça, e todas estas coisas vos serão acrescentadas. - Mateus 6:33",
+        "reflexao": "Quando colocamos Deus em primeiro lugar, Ele supre todas as nossas necessidades."
+    },
+    {
+        "versiculo": "Se Deus é por nós, quem será contra nós? - Romanos 8:31",
+        "reflexao": "Com Deus ao nosso lado, não há adversidade que possa nos derrotar."
+    },
+    {
+        "versiculo": "Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará. - Salmo 37:5",
+        "reflexao": "Ao confiarmos em Deus, Ele age em nosso favor e nos conduz pelo melhor caminho."
+    },
+    {
+        "versiculo": "Ora, a fé é o firme fundamento das coisas que se esperam, e a prova das coisas que se não veem. - Hebreus 11:1",
+        "reflexao": "A fé nos permite confiar em Deus mesmo quando não vemos as respostas imediatamente."
+    },
+    {
+        "versiculo": "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus. - Isaías 41:10",
+        "reflexao": "Deus está sempre conosco, trazendo força e segurança nos momentos difíceis."
+    },
+    {
+        "versiculo": "O Senhor pelejará por vós, e vos calareis. - Êxodo 14:14",
+        "reflexao": "Podemos descansar em Deus, pois Ele luta por nós e nos concede a vitória."
+    },
+    {
+        "versiculo": "Grandes coisas fez o Senhor por nós, pelas quais estamos alegres. - Salmo 126:3",
+        "reflexao": "Devemos lembrar e celebrar todas as bênçãos que Deus tem derramado sobre nós."
+    },
+    {
+        "versiculo": "Porque para Deus nada será impossível. - Lucas 1:37",
+        "reflexao": "Nenhuma situação está além do poder de Deus. Ele pode fazer o impossível acontecer."
+    },
+    {
+        "versiculo": "Mas em todas estas coisas somos mais do que vencedores, por aquele que nos amou. - Romanos 8:37",
+        "reflexao": "Com Cristo, somos mais do que vencedores. Sua vitória também é nossa."
+    },
+    {
+        "versiculo": "Pedi, e dar-se-vos-á; buscai, e encontrareis; batei, e abrir-se-vos-á. - Mateus 7:7",
+        "reflexao": "Deus ouve nossas orações e nos concede aquilo que buscamos de coração sincero."
+    },
+    {
+        "versiculo": "Regozijai-vos sempre no Senhor; outra vez digo, regozijai-vos. - Filipenses 4:4",
+        "reflexao": "Nossa alegria deve estar em Deus, pois Ele é a fonte da verdadeira felicidade."
+    },
+    {
+        "versiculo": "Alegrai-vos na esperança, sede pacientes na tribulação, perseverai na oração. - Romanos 12:12",
+        "reflexao": "A esperança em Deus nos dá forças para perseverar em tempos difíceis."
+    },
+    {
+        "versiculo": "Aquele que habita no esconderijo do Altíssimo, à sombra do Onipotente descansará. - Salmo 91:1",
+        "reflexao": "Em Deus encontramos proteção e descanso, mesmo nas maiores adversidades."
+    },
+    {
+        "versiculo": "O meu Deus, segundo as suas riquezas, suprirá todas as vossas necessidades em glória, por Cristo Jesus. - Filipenses 4:19",
+        "reflexao": "Deus é o nosso provedor e cuida de todas as nossas necessidades."
+    },
+    {
+        "versiculo": "O Senhor está perto de todos os que o invocam, de todos os que o invocam em verdade. - Salmo 145:18",
+        "reflexao": "Deus está próximo daqueles que clamam por Ele com sinceridade."
+    },
+    {
+        "versiculo": "Bem-aventurados os que choram, porque eles serão consolados. - Mateus 5:4",
+        "reflexao": "Deus nos consola em tempos de dor e nos fortalece para seguir em frente."
+    },
+    {
+        "versiculo": "O coração do homem pode fazer planos, mas a resposta certa dos lábios vem do Senhor. - Provérbios 16:1",
+        "reflexao": "Mesmo planejando nossa vida, devemos confiar que Deus tem a última palavra e o melhor caminho para nós."
+    },
+    {
+        "versiculo": "Deleita-te também no Senhor, e ele te concederá os desejos do teu coração. - Salmo 37:4",
+        "reflexao": "Quando nos alegramos em Deus e O buscamos, Ele nos abençoa com aquilo que precisamos."
+    },
+    {
+        "versiculo": "Não se turbe o vosso coração; credes em Deus, crede também em mim. - João 14:1",
+        "reflexao": "Jesus nos convida a confiar n'Ele e descansar, mesmo diante das incertezas da vida."
+    },
+    {
+        "versiculo": "E sabemos que todas as coisas contribuem juntamente para o bem daqueles que amam a Deus. - Romanos 8:28",
+        "reflexao": "Mesmo quando não entendemos as situações, Deus trabalha para o nosso bem em tudo."
+    },
+    {
+        "versiculo": "O Senhor é a minha luz e a minha salvação; a quem temerei? - Salmo 27:1",
+        "reflexao": "Com Deus ao nosso lado, não há razão para temer. Ele nos guia e protege."
+    },
+    {
+        "versiculo": "A resposta branda desvia o furor, mas a palavra dura suscita a ira. - Provérbios 15:1",
+        "reflexao": "A maneira como respondemos às situações pode trazer paz ou conflitos; devemos falar com sabedoria."
+    },
+    {
+        "versiculo": "Não temas, ó pequeno rebanho, porque a vosso Pai agradou dar-vos o Reino. - Lucas 12:32",
+        "reflexao": "Somos preciosos para Deus, e Ele nos concede Suas bênçãos e promessas."
+    },
+    {
+        "versiculo": "Tudo quanto fizerdes, fazei-o de todo o coração, como ao Senhor, e não aos homens. - Colossenses 3:23",
+        "reflexao": "Devemos viver para agradar a Deus em tudo o que fazemos, colocando nosso melhor em cada ação."
+    },
+    {
+        "versiculo": "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida. - Provérbios 4:23",
+        "reflexao": "Devemos cuidar do que permitimos entrar em nosso coração, pois isso influencia nossa vida."
+    },
+    {
+        "versiculo": "Clama a mim, e responder-te-ei, e anunciar-te-ei coisas grandes e firmes que não sabes. - Jeremias 33:3",
+        "reflexao": "Deus nos convida a buscá-Lo em oração, e Ele nos revelará coisas maravilhosas."
+    },
+    {
+        "versiculo": "O Senhor firma os passos do homem bom, e no seu caminho se compraz. - Salmo 37:23",
+        "reflexao": "Deus nos guia e nos firma no caminho certo quando buscamos a Sua vontade."
+    },
+    {
+        "versiculo": "Eu sou o caminho, e a verdade, e a vida; ninguém vem ao Pai, senão por mim. - João 14:6",
+        "reflexao": "Jesus é o único caminho para Deus e para a vida eterna."
+    },
+    {
+        "versiculo": "Humilhai-vos, pois, debaixo da potente mão de Deus, para que a seu tempo vos exalte. - 1 Pedro 5:6",
+        "reflexao": "Quando nos submetemos a Deus, Ele nos honra no tempo certo."
+    },
+    {
+        "versiculo": "O Senhor é bom, é fortaleza no dia da angústia, e conhece os que nele confiam. - Naum 1:7",
+        "reflexao": "Podemos confiar em Deus, pois Ele é nosso refúgio seguro nos momentos difíceis."
+    },
+    {
+        "versiculo": "A fé vem pelo ouvir, e o ouvir pela palavra de Deus. - Romanos 10:17",
+        "reflexao": "Para fortalecer nossa fé, devemos nos alimentar constantemente da Palavra de Deus."
+    },
+    {
+        "versiculo": "Seja a vossa moderação conhecida de todos os homens. Perto está o Senhor. - Filipenses 4:5",
+        "reflexao": "Devemos viver com equilíbrio e humildade, lembrando que Deus está sempre próximo."
+    },
+    {
+        "versiculo": "O Senhor sustenta a todos os que caem, e levanta a todos os abatidos. - Salmo 145:14",
+        "reflexao": "Deus está pronto para nos erguer e renovar nossas forças quando nos sentimos fracos."
+    },
+    {
+        "versiculo": "Não vos inquieteis com nada; antes as vossas petições sejam em tudo conhecidas diante de Deus. - Filipenses 4:6",
+        "reflexao": "Ao invés de nos preocuparmos, devemos entregar tudo a Deus em oração."
+    },
+    {
+        "versiculo": "Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei. - Mateus 11:28",
+        "reflexao": "Jesus nos convida a encontrar descanso e paz n'Ele, mesmo nos momentos difíceis."
+    },
+    {
+        "versiculo": "Porque mil anos são aos teus olhos como o dia de ontem que passou, e como a vigília da noite. - Salmo 90:4",
+        "reflexao": "O tempo de Deus é diferente do nosso. Ele age no momento certo, mesmo quando parece demorado para nós."
+    },
+    {
+        "versiculo": "Os que esperam no Senhor renovarão as suas forças, subirão com asas como águias. - Isaías 40:31",
+        "reflexao": "Quando esperamos em Deus, Ele nos fortalece e nos capacita para seguir adiante."
+    },
+    {
+        "versiculo": "O Senhor é bom para os que esperam por ele, para a alma que o busca. - Lamentações 3:25",
+        "reflexao": "Deus recompensa aqueles que O buscam com sinceridade e paciência."
+    },
+    {
+        "versiculo": "Ao Senhor pertence a salvação; sobre o teu povo seja a tua bênção. - Salmo 3:8",
+        "reflexao": "A verdadeira salvação vem somente de Deus, e Ele derrama Suas bênçãos sobre o Seu povo."
+    },
+    {
+        "versiculo": "Ensinai-nos a contar os nossos dias, de tal maneira que alcancemos corações sábios. - Salmo 90:12",
+        "reflexao": "Precisamos viver cada dia com sabedoria, reconhecendo a importância do tempo que Deus nos dá."
+    },
+    {
+        "versiculo": "Sujeitai-vos, pois, a Deus; resisti ao diabo, e ele fugirá de vós. - Tiago 4:7",
+        "reflexao": "Quando nos submetemos a Deus, temos poder para resistir ao mal e viver em vitória."
+    },
+    {
+        "versiculo": "Aquele que começou a boa obra em vós há de completá-la até o dia de Cristo Jesus. - Filipenses 1:6",
+        "reflexao": "Deus não abandona Seus filhos; Ele termina a obra que começou em nós."
+    },
+    {
+        "versiculo": "Lançando sobre ele toda a vossa ansiedade, porque ele tem cuidado de vós. - 1 Pedro 5:7",
+        "reflexao": "Podemos confiar em Deus e entregar nossas preocupações a Ele, pois Ele cuida de nós."
+    },
+    {
+        "versiculo": "O Senhor dá força ao seu povo; o Senhor abençoa com paz ao seu povo. - Salmo 29:11",
+        "reflexao": "Deus nos fortalece e nos concede paz, independentemente das circunstâncias."
+    },
+    {
+        "versiculo": "Melhor é o pouco com justiça, do que a abundância de bens com injustiça. - Provérbios 16:8",
+        "reflexao": "A integridade vale mais do que qualquer riqueza adquirida de maneira errada."
+    },
+    {
+        "versiculo": "Não ameis o mundo, nem o que no mundo há. Se alguém ama o mundo, o amor do Pai não está nele. - 1 João 2:15",
+        "reflexao": "Nosso coração deve estar voltado para Deus, não para as coisas passageiras deste mundo."
+    },
+    {
+        "versiculo": "Santificai-vos, porque amanhã fará o Senhor maravilhas no meio de vós. - Josué 3:5",
+        "reflexao": "Quando nos consagramos a Deus, Ele realiza grandes coisas em nossas vidas."
+    },
+    {
+        "versiculo": "O Senhor está comigo; não temerei o que me pode fazer o homem. - Salmo 118:6",
+        "reflexao": "Com Deus ao nosso lado, não precisamos temer os desafios e as ameaças deste mundo."
+    },
+    {
+        "versiculo": "Porque a tua graça é melhor do que a vida, os meus lábios te louvarão. - Salmo 63:3",
+        "reflexao": "A graça de Deus é o maior tesouro que podemos ter, e por isso devemos louvá-Lo sempre."
+    },
+    {
+        "versiculo": "Com efeito, grandes coisas fez o Senhor por nós; por isso estamos alegres. - Salmo 126:3",
+        "reflexao": "Devemos sempre lembrar e agradecer a Deus pelas bênçãos que Ele nos concede."
+    },
+    {
+        "versiculo": "Filho meu, não te esqueças da minha lei, e o teu coração guarde os meus mandamentos. - Provérbios 3:1",
+        "reflexao": "Guardar a Palavra de Deus em nosso coração nos mantém no caminho certo."
+    },
+    {
+        "versiculo": "Não por força nem por poder, mas pelo meu Espírito, diz o Senhor dos Exércitos. - Zacarias 4:6",
+        "reflexao": "Nossa vitória não depende de nossa força, mas do poder de Deus agindo em nós."
+    },
+    {
+        "versiculo": "Revesti-vos de toda a armadura de Deus, para que possais estar firmes contra as astutas ciladas do diabo. - Efésios 6:11",
+        "reflexao": "Precisamos nos preparar espiritualmente para enfrentar as lutas da vida com a proteção de Deus."
+    },
+    {
+        "versiculo": "E sede cumpridores da palavra, e não somente ouvintes, enganando-vos a vós mesmos. - Tiago 1:22",
+        "reflexao": "Devemos viver conforme a Palavra de Deus, e não apenas ouvi-la sem praticá-la."
+    },
+    {
+        "versiculo": "O Senhor é a minha rocha, e o meu lugar forte, e o meu libertador. - Salmo 18:2",
+        "reflexao": "Deus é nosso refúgio seguro e aquele que nos liberta de todas as aflições."
+    },
+    {
+        "versiculo": "Aquele que não ama não conhece a Deus; porque Deus é amor. - 1 João 4:8",
+        "reflexao": "O amor de Deus é a essência de quem Ele é, e devemos refletir esse amor em nossas vidas."
+    },
+    {
+        "versiculo": "O Senhor é a minha força e o meu cântico; ele me foi por salvação. - Êxodo 15:2",
+        "reflexao": "Deus nos fortalece e nos salva. Por isso, devemos louvá-Lo com gratidão."
+    },
+    {
+        "versiculo": "Porque onde estiver o vosso tesouro, aí estará também o vosso coração. - Mateus 6:21",
+        "reflexao": "Nosso coração deve estar voltado para os tesouros celestiais, e não para os bens materiais."
+    },
+    {
+        "versiculo": "O Senhor é bom, uma fortaleza no dia da angústia; e conhece os que confiam nele. - Naum 1:7",
+        "reflexao": "Deus é nosso refúgio e proteção, e nunca se esquece daqueles que confiam Nele."
+    },
+    {
+        "versiculo": "Fiel é o que vos chama, o qual também o fará. - 1 Tessalonicenses 5:24",
+        "reflexao": "Deus é fiel para cumprir tudo o que prometeu em nossas vidas."
+    },
+    {
+        "versiculo": "Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia. - Salmo 46:1",
+        "reflexao": "Mesmo nos momentos mais difíceis, Deus está ao nosso lado, pronto para nos ajudar."
+    },
+    {
+        "versiculo": "O meu mandamento é este: Que vos ameis uns aos outros, assim como eu vos amei. - João 15:12",
+        "reflexao": "Devemos amar o próximo com o mesmo amor que Jesus demonstrou por nós."
+    },
+    {
+        "versiculo": "Agrada-te do Senhor, e ele satisfará os desejos do teu coração. - Salmo 37:4",
+        "reflexao": "Quando colocamos Deus como prioridade, Ele nos abençoa de maneira surpreendente."
+    },
+    {
+        "versiculo": "Com amor eterno te amei; por isso com benignidade te atraí. - Jeremias 31:3",
+        "reflexao": "O amor de Deus por nós é infinito e nos chama para perto d'Ele."
+    },
+    {
+        "versiculo": "Deus não é homem, para que minta; nem filho do homem, para que se arrependa. - Números 23:19",
+        "reflexao": "Deus cumpre todas as Suas promessas. Podemos confiar plenamente Nele."
+    },
+    {
+        "versiculo": "Bem-aventurados os pacificadores, porque eles serão chamados filhos de Deus. - Mateus 5:9",
+        "reflexao": "Devemos buscar a paz em todas as situações, refletindo o caráter de Deus."
+    },
+    {
+        "versiculo": "Não temas, porque eu te remi; chamei-te pelo teu nome, tu és meu. - Isaías 43:1",
+        "reflexao": "Somos preciosos para Deus, e Ele nos chama pessoalmente para pertencermos a Ele."
+    },
+    {
+        "versiculo": "E tudo quanto pedirdes em oração, crendo, o recebereis. - Mateus 21:22",
+        "reflexao": "A oração com fé tem poder. Deus ouve e responde conforme Sua vontade."
+    },
+    {
+        "versiculo": "O temor do Senhor é o princípio da sabedoria. - Provérbios 9:10",
+        "reflexao": "O verdadeiro conhecimento começa com o respeito e reverência a Deus."
+    },
+    {
+        "versiculo": "Nisto todos conhecerão que sois meus discípulos, se vos amardes uns aos outros. - João 13:35",
+        "reflexao": "O amor ao próximo é a maior marca de um verdadeiro seguidor de Cristo."
+    },
+    {
+        "versiculo": "O Senhor te guardará de todo mal; ele guardará a tua alma. - Salmo 121:7",
+        "reflexao": "Deus nos protege em todas as áreas da nossa vida, inclusive espiritualmente."
+    },
+    {
+        "versiculo": "Sede fortes e corajosos; não temais, nem vos atemorizeis diante deles. - Deuteronômio 31:6",
+        "reflexao": "Com Deus ao nosso lado, podemos enfrentar qualquer desafio com coragem."
+    },
+    {
+        "versiculo": "A paz de Deus, que excede todo o entendimento, guardará os vossos corações e os vossos pensamentos em Cristo Jesus. - Filipenses 4:7",
+        "reflexao": "A verdadeira paz vem de Deus e nos sustenta mesmo nas dificuldades."
+    },
+    {
+        "versiculo": "E não nos cansemos de fazer o bem, porque a seu tempo ceifaremos, se não houvermos desfalecido. - Gálatas 6:9",
+        "reflexao": "Devemos perseverar no bem, pois Deus recompensará no tempo certo."
+    },
+    {
+        "versiculo": "Clamarei ao Deus Altíssimo, ao Deus que por mim tudo executa. - Salmo 57:2",
+        "reflexao": "Quando buscamos a Deus, Ele age em nosso favor e realiza Sua vontade em nossa vida."
+    },
+    {
+        "versiculo": "Digo-vos que assim haverá alegria no céu por um pecador que se arrepende. - Lucas 15:7",
+        "reflexao": "Cada pessoa que se volta para Deus traz grande alegria ao coração do Pai."
+    },
+    {
+        "versiculo": "Lâmpada para os meus pés é a tua palavra, e luz para o meu caminho. - Salmo 119:105",
+        "reflexao": "A Palavra de Deus ilumina nossa jornada, nos guiando pelo caminho certo."
+    },
+    {
+        "versiculo": "Buscai ao Senhor enquanto se pode achar, invocai-o enquanto está perto. - Isaías 55:6",
+        "reflexao": "Devemos buscar a Deus com sinceridade, pois Ele está sempre disponível para nos ouvir."
+    },
+    {
+        "versiculo": "O choro pode durar uma noite, mas a alegria vem pela manhã. - Salmo 30:5",
+        "reflexao": "Os momentos difíceis passam, e Deus nos traz alegria no tempo certo."
+    },
+    {
+        "versiculo": "Sede vós também pacientes, fortalecei os vossos corações; porque já a vinda do Senhor está próxima. - Tiago 5:8",
+        "reflexao": "Devemos viver com esperança e paciência, pois a promessa da volta de Cristo se cumprirá."
+    },
+    {
+        "versiculo": "Bem-aventurados os que têm fome e sede de justiça, porque eles serão fartos. - Mateus 5:6",
+        "reflexao": "Aqueles que desejam viver de maneira justa serão saciados pela graça de Deus."
+    },
+    {
+        "versiculo": "O Senhor é refúgio para os oprimidos, uma torre segura na hora da adversidade. - Salmo 9:9",
+        "reflexao": "Em tempos difíceis, podemos encontrar segurança e descanso em Deus."
+    },
+    {
+        "versiculo": "Instruir-te-ei, e ensinar-te-ei o caminho que deves seguir; guiar-te-ei com os meus olhos. - Salmo 32:8",
+        "reflexao": "Deus nos ensina e nos orienta em cada passo da nossa vida."
+    },
+    {
+        "versiculo": "Toda boa dádiva e todo dom perfeito vem do alto, descendo do Pai das luzes. - Tiago 1:17",
+        "reflexao": "Tudo o que temos de bom vem de Deus, que nos abençoa com Seu amor."
+    },
+    {
+        "versiculo": "Entrega o teu caminho ao Senhor; confia nele, e ele o fará. - Salmo 37:5",
+        "reflexao": "Quando colocamos nossa vida nas mãos de Deus, Ele nos conduz pelo melhor caminho."
+    },
+    {
+        "versiculo": "Não temas, crê somente. - Marcos 5:36",
+        "reflexao": "A fé em Deus nos fortalece e nos faz vencer o medo e as dificuldades."
+    },
+    {
+        "versiculo": "O Senhor abrirá o céu, o depósito do seu tesouro, para dar chuva à sua terra no tempo certo. - Deuteronômio 28:12",
+        "reflexao": "Deus provê tudo o que precisamos no tempo certo."
+    },
+    {
+        "versiculo": "O coração alegre é como o bom remédio, mas o espírito abatido seca até os ossos. - Provérbios 17:22",
+        "reflexao": "A alegria traz saúde e renovação, enquanto a tristeza pode nos enfraquecer."
+    },
+    {
+        "versiculo": "Em paz me deitarei e dormirei, porque só tu, Senhor, me fazes habitar em segurança. - Salmo 4:8",
+        "reflexao": "Quando confiamos em Deus, podemos descansar com paz e segurança."
+    },
+    {
+        "versiculo": "O Senhor é a minha força e o meu escudo; nele confiou o meu coração, e fui socorrido. - Salmo 28:7",
+        "reflexao": "Deus nos protege e nos fortalece quando confiamos Nele."
+    },
+    {
+        "versiculo": "Aquietai-vos e sabei que eu sou Deus. - Salmo 46:10",
+        "reflexao": "Devemos descansar na soberania de Deus e confiar no Seu plano."
+    },
+    {
+        "versiculo": "Não sabeis que sois templo de Deus e que o Espírito de Deus habita em vós? - 1 Coríntios 3:16",
+        "reflexao": "Devemos viver de forma santa, pois somos morada do Espírito Santo."
+    },
+    {
+        "versiculo": "O Senhor dos Exércitos está conosco; o Deus de Jacó é o nosso refúgio. - Salmo 46:7",
+        "reflexao": "Não estamos sozinhos, Deus está sempre ao nosso lado como nosso refúgio."
+    },
+    {
+        "versiculo": "Aquele que anda com os sábios será cada vez mais sábio, mas o companheiro dos tolos acabará mal. - Provérbios 13:20",
+        "reflexao": "Devemos escolher bem nossas companhias, pois elas influenciam nosso caminho."
+    },
+    {
+        "versiculo": "Porque Deus não nos deu espírito de medo, mas de poder, de amor e de moderação. - 2 Timóteo 1:7",
+        "reflexao": "Deus nos capacita com coragem, amor e equilíbrio para enfrentar os desafios."
+    },
+    {
+        "versiculo": "Grandes coisas fez o Senhor por nós, e por isso estamos alegres. - Salmo 126:3",
+        "reflexao": "Devemos sempre lembrar das bênçãos de Deus e viver com gratidão."
+    }
+]
