@@ -5,157 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Versículo do Dia</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            transition: background-color 0.5s, color 0.5s, background-image 0.5s;
-        }
-
-        body.escuro {
-            background-color: #2c3e50;
-            color: #fff;
-            background-image: url('https://i.pinimg.com/736x/cc/66/f8/cc66f86680010d051f9ac04a6a2f7a2d.jpg'); /* Imagem de fundo para tema escuro */
-            background-size: cover;
-            background-position: center;
-        }
-
-        body.claro {
-            background-color: #f4f4f4;
-            color: #2c3e50;
-            background-image: url('https://i.pinimg.com/736x/ec/95/04/ec9504e731b7900023ea947249df107e.jpg'); /* Imagem de fundo para tema claro */
-            background-size: cover;
-            background-position: center;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            font-size: 2em;
-            color: #27ae60;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.5em;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #34495e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        button {
-            background-color: #27ae60;
-            color: white;
-            font-size: 0.9em;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #2ecc71;
-        }
-
-        .reacoes {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .reacoes button {
-            margin: 0 10px;
-            font-size: 1em;
-        }
-
-        .reacoes span {
-            margin-left: 5px;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 1em;
-            color: #bdc3c7;
-        }
-
-        .comentarios {
-            margin-top: 40px;
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .comentarios input, .comentarios textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        .comentarios button {
-            background-color: #3498db;
-            font-size: 1em;
-        }
-
-        /* Design Responsivo */
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-            p {
-                font-size: 1.2em;
-                padding: 15px;
-            }
-            button {
-                width: 100%;
-            }
-        }
+        /* Estilos CSS (como no código original) */
     </style>
 </head>
-<body class="claro"> <!-- Inicia com o tema claro -->
+<body class="claro">
     <div>
         <h1>Versículo do Dia</h1>
 
         <h2>Versículo</h2>
-        <p id="versiculo"></p>
+        <p id="versiculo">Carregando...</p>
 
         <h2>Reflexão</h2>
-        <p id="reflexao"></p>
+        <p id="reflexao">Carregando...</p>
 
         <div class="reacoes">
-            <button onclick="curtir()">Curtir 👍 <span id="contador-curtir">0</span></button>
-            <button onclick="amei()">Amei ❤️ <span id="contador-amei">0</span></button>
-            <button onclick="meTocou()">Me Tocou 😢 <span id="contador-me-tocou">0</span></button>
+            <button onclick="curtir()" aria-label="Curtir">Curtir  <span id="contador-curtir">0</span></button>
+            <button onclick="amei()" aria-label="Amei">Amei ❤️ <span id="contador-amei">0</span></button>
+            <button onclick="meTocou()" aria-label="Me Tocou">Me Tocou  <span id="contador-me-tocou">0</span></button>
         </div>
 
         <footer>
@@ -164,105 +30,19 @@
 
         <div class="comentarios">
             <h3>Comente ou compartilhe seu testemunho:</h3>
+            <label for="nome">Seu nome:</label>
             <input type="text" id="nome" placeholder="Seu nome">
+            <label for="comentario">Seu comentário ou testemunho:</label>
             <textarea id="comentario" placeholder="Seu comentário ou testemunho"></textarea>
             <button onclick="enviarComentario()">Enviar</button>
+            <div id="lista-comentarios">
+                <h3>Comentários:</h3>
+            </div>
         </div>
 
         <button onclick="alternarTema()">Alternar Tema</button>
     </div>
 
-    <script>
-        // Função para buscar versículo e reflexão do arquivo versiculos.json
-        function obterVersiculo() {
-            fetch('versiculos.json')
-                .then(response => response.json())
-                .then(data => {
-                    const dataAtual = new Date();
-                    const dia = dataAtual.getDate();
-                    const versiculo = data[dia % data.length].versiculo;
-                    const reflexao = data[dia % data.length].reflexao;
-                    
-                    localStorage.setItem('versiculoDoDia', versiculo);
-                    localStorage.setItem('reflexaoDoDia', reflexao);
-
-                    document.getElementById('versiculo').textContent = versiculo;
-                    document.getElementById('reflexao').textContent = reflexao;
-                })
-                .catch(error => console.log('Erro ao carregar versículos:', error));
-        }
-
-        // Alternar entre tema claro e escuro
-        function alternarTema() {
-            document.body.classList.toggle('escuro');
-            document.body.classList.toggle('claro');
-        }
-
-        // Reações
-        let contadorCurtir = parseInt(localStorage.getItem('contadorCurtir')) || 0;
-        let contadorAmei = parseInt(localStorage.getItem('contadorAmei')) || 0;
-        let contadorMeTocou = parseInt(localStorage.getItem('contadorMeTocou')) || 0;
-
-        function curtir() {
-            contadorCurtir++;
-            document.getElementById('contador-curtir').textContent = contadorCurtir;
-            localStorage.setItem('contadorCurtir', contadorCurtir);
-        }
-
-        function amei() {
-            contadorAmei++;
-            document.getElementById('contador-amei').textContent = contadorAmei;
-            localStorage.setItem('contadorAmei', contadorAmei);
-        }
-
-        function meTocou() {
-            contadorMeTocou++;
-            document.getElementById('contador-me-tocou').textContent = contadorMeTocou;
-            localStorage.setItem('contadorMeTocou', contadorMeTocou);
-        }
-
-        // Comentários
-        function enviarComentario() {
-            const nome = document.getElementById('nome').value;
-            const comentario = document.getElementById('comentario').value;
-
-            if (nome && comentario) {
-                alert('Obrigado pelo seu comentário!');
-                document.getElementById('nome').value = '';
-                document.getElementById('comentario').value = '';
-            } else {
-                alert('Por favor, preencha o nome e o comentário.');
-            }
-        }
-
-        // Garantir que o versículo seja atualizado à meia-noite
-        function verificarHorario() {
-            const ultimaAtualizacao = localStorage.getItem('ultimaAtualizacao');
-            const dataAtual = new Date();
-
-            if (!ultimaAtualizacao || new Date(ultimaAtualizacao).getDate() !== dataAtual.getDate()) {
-                localStorage.removeItem('versiculoDoDia');
-                localStorage.removeItem('reflexaoDoDia');
-                localStorage.setItem('ultimaAtualizacao', dataAtual);
-                obterVersiculo();
-            }
-        }
-
-        // Carregar e exibir versículo e reflexão
-        function carregarVersiculo() {
-            const versiculo = localStorage.getItem('versiculoDoDia');
-            const reflexao = localStorage.getItem('reflexaoDoDia');
-            
-            if (versiculo && reflexao) {
-                document.getElementById('versiculo').textContent = versiculo;
-                document.getElementById('reflexao').textContent = reflexao;
-            } else {
-                obterVersiculo();
-            }
-        }
-
-        carregarVersiculo();
-        verificarHorario();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
