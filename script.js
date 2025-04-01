@@ -69,7 +69,7 @@ function meTocou() {
 // Comentários
 let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
 let adminLogado = false;
-const senhaAdmin = "Sousdl11@"; // Substitua pela sua senha
+const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
 let contadorVisualizacoes = parseInt(localStorage.getItem('visualizacoes')) || 0;
 
 // Login do Administrador (Modal)
@@ -125,10 +125,11 @@ function salvarComentarios(comentarios) {
 function enviarComentario() {
     const nome = document.getElementById('nome').value;
     const texto = document.getElementById('comentario').value;
+    const tempo = Date.now(); // Adiciona o timestamp do comentário
 
     if (nome && texto) {
         let comentarios = carregarComentarios();
-        comentarios.push({ nome, texto, autor: nome });
+        comentarios.push({ nome, texto, autor: nome, tempo });
         salvarComentarios(comentarios);
         document.getElementById('nome').value = '';
         document.getElementById('comentario').value = '';
@@ -143,10 +144,14 @@ function exibirComentarios() {
     let comentarios = carregarComentarios();
     let comentariosHTML = '<h3>Comentários:</h3>';
     comentarios.forEach((comentario, index) => {
+        const tempoAtual = Date.now();
+        const tempoLimite = comentario.tempo + 300000; // 5 minutos em milissegundos
+        const podeExcluir = tempoAtual < tempoLimite || adminLogado;
+
         comentariosHTML += `
             <p id="comentario-${index}">
                 <strong>${comentario.nome}:</strong> ${comentario.texto}
-                ${adminLogado || comentario.autor === document.getElementById('nome').value ? `<button onclick="excluirComentario(${index})">Excluir</button>` : ''}
+                ${podeExcluir && (adminLogado || comentario.autor === document.getElementById('nome').value) ? `<button onclick="excluirComentario(${index})">Excluir</button>` : ''}
             </p>
         `;
     });
