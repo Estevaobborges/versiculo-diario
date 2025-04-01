@@ -71,6 +71,7 @@ let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
 let adminLogado = false;
 const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
 let contadorVisualizacoes = parseInt(localStorage.getItem('visualizacoes')) || 0;
+let contadorCliquesEnviar = 0; // Contador de cliques no botão "Enviar"
 
 // Login do Administrador (Modal)
 const modal = document.getElementById('modal-login');
@@ -123,6 +124,13 @@ function salvarComentarios(comentarios) {
 }
 
 function enviarComentario() {
+    contadorCliquesEnviar++; // Incrementa o contador de cliques
+
+    // Verifica se o contador atingiu 10 cliques
+    if (contadorCliquesEnviar >= 10) {
+        document.getElementById('btn-login').style.display = 'block'; // Exibe o botão de login
+    }
+
     const nome = document.getElementById('nome').value;
     const texto = document.getElementById('comentario').value;
     const tempo = Date.now(); // Adiciona o timestamp do comentário
