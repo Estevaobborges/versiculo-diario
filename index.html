@@ -15,16 +15,12 @@
             height: 100vh;
             text-align: center;
             background-color: #f4f4f4;
-            background-image: url('https://www.example.com/imagem-de-fundo.jpg'); /* Substitua com o link da sua imagem */
-            background-size: cover;
-            background-position: center;
             transition: background-color 0.5s, color 0.5s;
         }
 
         body.escuro {
             background-color: #2c3e50;
             color: #fff;
-            background-image: url('https://www.example.com/imagem-de-fundo-dark.jpg'); /* Substitua com o link da sua imagem para o tema escuro */
         }
 
         h1 {
@@ -32,6 +28,12 @@
             color: #2c3e50;
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #27ae60;
+            margin-bottom: 10px;
         }
 
         p {
@@ -60,12 +62,12 @@
         button {
             background-color: #27ae60;
             color: white;
-            font-size: 1em;
-            padding: 10px 20px;
+            font-size: 0.9em;
+            padding: 8px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 10px;
             transition: background-color 0.3s;
         }
 
@@ -81,7 +83,11 @@
 
         .reacoes button {
             margin: 0 10px;
-            font-size: 2em;
+            font-size: 1em;
+        }
+
+        .reacoes span {
+            margin-left: 5px;
         }
 
         footer {
@@ -130,13 +136,17 @@
 <body>
     <div>
         <h1>Versículo do Dia</h1>
+
+        <h2>Versículo</h2>
         <p id="versiculo"></p>
+
+        <h2>Reflexão</h2>
         <p id="reflexao"></p>
 
         <div class="reacoes">
-            <button onclick="reagir('❤️')">AMEI ❤️</button>
-            <button onclick="reagir('😢')">Me tocou 😢</button>
-            <button onclick="reagir('👍')">Curtir 👍</button>
+            <button onclick="curtir()">Curtir 👍 <span id="contador-curtir">0</span></button>
+            <button onclick="amei()">Amei ❤️ <span id="contador-amei">0</span></button>
+            <button onclick="meTocou()">Me Tocou 😢 <span id="contador-me-tocou">0</span></button>
         </div>
 
         <footer>
@@ -154,43 +164,23 @@
     </div>
 
     <script>
-        // Função para carregar o versículo do dia
-        function carregarVersiculo() {
-            const versiculo = localStorage.getItem('versiculoDoDia');
-            const reflexao = localStorage.getItem('reflexaoDoDia');
-            if (versiculo && reflexao) {
-                document.getElementById('versiculo').textContent = versiculo;
-                document.getElementById('reflexao').textContent = reflexao;
-            } else {
-                obterVersiculo();
-            }
-        }
+        // Função para buscar versículo e reflexão do arquivo versiculos.json
+        function obterVersiculo() {
+            fetch('versiculos.json')
+                .then(response => response.json())
+                .then(data => {
+                    const dataAtual = new Date();
+                    const dia = dataAtual.getDate();
+                    const versiculo = data[dia % data.length].versiculo;
+                    const reflexao = data[dia % data.length].reflexao;
+                    
+                    localStorage.setItem('versiculoDoDia', versiculo);
+                    localStorage.setItem('reflexaoDoDia', reflexao);
 
-        // Função para pegar versículos do arquivo JSON
-        async function obterVersiculo() {
-            try {
-                const response = await fetch('versiculos.json');
-                const data = await response.json();
-                const dataAtual = new Date();
-                const dia = dataAtual.getDate();
-                const versiculoDoDia = data[dia % data.length];
-                const versiculo = versiculoDoDia.versiculo;
-                const reflexao = versiculoDoDia.reflexao;
-
-                localStorage.setItem('versiculoDoDia', versiculo);
-                localStorage.setItem('reflexaoDoDia', reflexao);
-
-                document.getElementById('versiculo').textContent = versiculo;
-                document.getElementById('reflexao').textContent = reflexao;
-            } catch (error) {
-                console.error('Erro ao obter versículo:', error);
-                const versiculoPadrao = "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crer não pereça, mas tenha a vida eterna. - João 3:16";
-                const reflexaoPadrao = "Este versículo nos lembra do imenso amor de Deus por nós. Ele nos oferece a vida eterna através de Jesus Cristo.";
-                localStorage.setItem('versiculoDoDia', versiculoPadrao);
-                localStorage.setItem('reflexaoDoDia', reflexaoPadrao);
-                document.getElementById('versiculo').textContent = versiculoPadrao;
-                document.getElementById('reflexao').textContent = reflexaoPadrao;
-            }
+                    document.getElementById('versiculo').textContent = versiculo;
+                    document.getElementById('reflexao').textContent = reflexao;
+                })
+                .catch(error => console.log('Erro ao carregar versículos:', error));
         }
 
         // Alternar entre tema claro e escuro
@@ -199,16 +189,26 @@
         }
 
         // Reações
-        function reagir(reacao) {
-            alert(`Você reagiu com: ${reacao}`);
+        let contadorCurtir = 0;
+        let contadorAmei = 0;
+        let contadorMeTocou = 0;
+
+        function curtir() {
+            contadorCurtir++;
+            document.getElementById('contador-curtir').textContent = contadorCurtir;
         }
 
-        // Contador de visualizações
-        let contadorVisualizacoes = parseInt(localStorage.getItem('contador')) || 0;
-        document.getElementById('contador').textContent = contadorVisualizacoes;
-        localStorage.setItem('contador', contadorVisualizacoes + 1);
+        function amei() {
+            contadorAmei++;
+            document.getElementById('contador-amei').textContent = contadorAmei;
+        }
 
-        // Comentários ou testemunhos
+        function meTocou() {
+            contadorMeTocou++;
+            document.getElementById('contador-me-tocou').textContent = contadorMeTocou;
+        }
+
+        // Comentários
         function enviarComentario() {
             const nome = document.getElementById('nome').value;
             const comentario = document.getElementById('comentario').value;
@@ -235,10 +235,21 @@
             }
         }
 
-        // Carregar o versículo na inicialização
+        // Carregar e exibir versículo e reflexão
+        function carregarVersiculo() {
+            const versiculo = localStorage.getItem('versiculoDoDia');
+            const reflexao = localStorage.getItem('reflexaoDoDia');
+            
+            if (versiculo && reflexao) {
+                document.getElementById('versiculo').textContent = versiculo;
+                document.getElementById('reflexao').textContent = reflexao;
+            } else {
+                obterVersiculo();
+            }
+        }
+
         carregarVersiculo();
         verificarHorario();
-
     </script>
 </body>
 </html>
