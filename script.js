@@ -36,10 +36,12 @@ function exibirVersiculoAnterior() {
 }
 
 // Alternar entre tema claro e escuro
-function alternarTema() {
+const btnAlternarTema = document.getElementById('alternar-tema-btn');
+
+btnAlternarTema.addEventListener('click', () => {
     document.body.classList.toggle('escuro');
     document.body.classList.toggle('claro');
-}
+});
 
 // Reações
 let contadorCurtir = parseInt(localStorage.getItem('contadorCurtir')) || 0;
@@ -102,8 +104,43 @@ function loginAdmin() {
     }
 }
 
+function gerarChaveComentarios() {
+    const dataAtual = new Date();
+    const dia = dataAtual.getDate();
+    const mes = dataAtual.getMonth() + 1;
+    const ano = dataAtual.getFullYear();
+    return `comentarios_${ano}${mes}${dia}`;
+}
+
+function carregarComentarios() {
+    const chaveComentarios = gerarChaveComentarios();
+    return JSON.parse(localStorage.getItem(chaveComentarios)) || [];
+}
+
+function salvarComentarios(comentarios) {
+    const chaveComentarios = gerarChaveComentarios();
+    localStorage.setItem(chaveComentarios, JSON.stringify(comentarios));
+}
+
+function enviarComentario() {
+    const nome = document.getElementById('nome').value;
+    const texto = document.getElementById('comentario').value;
+
+    if (nome && texto) {
+        let comentarios = carregarComentarios();
+        comentarios.push({ nome, texto, autor: nome });
+        salvarComentarios(comentarios);
+        document.getElementById('nome').value = '';
+        document.getElementById('comentario').value = '';
+        exibirComentarios();
+    } else {
+        alert('Por favor, preencha o nome e o comentário.');
+    }
+}
+
 function exibirComentarios() {
     const listaComentarios = document.getElementById('lista-comentarios');
+    let comentarios = carregarComentarios();
     let comentariosHTML = '<h3>Comentários:</h3>';
     comentarios.forEach((comentario, index) => {
         comentariosHTML += `
@@ -117,24 +154,10 @@ function exibirComentarios() {
 }
 
 function excluirComentario(index) {
+    let comentarios = carregarComentarios();
     comentarios.splice(index, 1);
-    localStorage.setItem('comentarios', JSON.stringify(comentarios));
+    salvarComentarios(comentarios);
     exibirComentarios();
-}
-
-function enviarComentario() {
-    const nome = document.getElementById('nome').value;
-    const texto = document.getElementById('comentario').value;
-
-    if (nome && texto) {
-        comentarios.push({ nome, texto, autor: nome }); // Adiciona o autor ao comentário
-        localStorage.setItem('comentarios', JSON.stringify(comentarios));
-        document.getElementById('nome').value = '';
-        document.getElementById('comentario').value = '';
-        exibirComentarios();
-    } else {
-        alert('Por favor, preencha o nome e o comentário.');
-    }
 }
 
 // Garantir que o versículo seja atualizado à meia-noite
