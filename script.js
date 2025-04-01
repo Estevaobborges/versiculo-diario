@@ -70,9 +70,23 @@ let adminLogado = false;
 const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
 let contadorVisualizacoes = parseInt(localStorage.getItem('visualizacoes')) || 0;
 
-// Login do Administrador (Popup)
-function mostrarPopupLogin() {
-    document.getElementById('popup-login').style.display = 'block';
+// Login do Administrador (Modal)
+const modal = document.getElementById('modal-login');
+const btnLogin = document.getElementById('btn-login');
+const spanFechar = document.getElementsByClassName('fechar')[0];
+
+btnLogin.onclick = function() {
+    modal.style.display = 'block';
+}
+
+spanFechar.onclick = function() {
+    modal.style.display = 'none';
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
 }
 
 function loginAdmin() {
@@ -80,8 +94,8 @@ function loginAdmin() {
     if (senha === senhaAdmin) {
         adminLogado = true;
         alert("Login bem-sucedido!");
-        document.getElementById('popup-login').style.display = 'none';
-        document.getElementById('admin-login').style.display = 'none';
+        modal.style.display = 'none';
+        btnLogin.style.display = 'none';
         exibirComentarios();
     } else {
         alert("Senha incorreta.");
