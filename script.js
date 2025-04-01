@@ -8,17 +8,31 @@ function obterVersiculo() {
             const versiculo = data[dia % data.length].versiculo;
             const reflexao = data[dia % data.length].reflexao;
 
+            // Armazena o versículo do dia anterior
+            const diaAnterior = (dia - 1 + data.length) % data.length;
+            const versiculoAnterior = data[diaAnterior].versiculo;
+            localStorage.setItem('versiculoAnterior', versiculoAnterior);
+
             localStorage.setItem('versiculoDoDia', versiculo);
             localStorage.setItem('reflexaoDoDia', reflexao);
 
             document.getElementById('versiculo').textContent = versiculo;
             document.getElementById('reflexao').textContent = reflexao;
+            exibirVersiculoAnterior(); // Exibe o versículo do dia anterior
         })
         .catch(error => {
             console.error('Erro ao carregar versículos:', error);
             document.getElementById('versiculo').textContent = 'Erro ao carregar versículo.';
             document.getElementById('reflexao').textContent = 'Erro ao carregar reflexão.';
         });
+}
+
+// Função para exibir o versículo do dia anterior
+function exibirVersiculoAnterior() {
+    const versiculoAnterior = localStorage.getItem('versiculoAnterior');
+    if (versiculoAnterior) {
+        document.getElementById('versiculoAnterior').textContent = `Versículo do Dia Anterior: ${versiculoAnterior}`;
+    }
 }
 
 // Alternar entre tema claro e escuro
@@ -53,7 +67,8 @@ function meTocou() {
 // Comentários
 let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
 let adminLogado = false;
-const senhaAdmin = "sousdl11"; // Substitua pela sua senha
+const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
+let contadorVisualizacoes = parseInt(localStorage.getItem('visualizacoes')) || 0;
 
 function loginAdmin() {
     const senha = document.getElementById('adminSenha').value;
@@ -61,7 +76,7 @@ function loginAdmin() {
         adminLogado = true;
         alert("Login bem-sucedido!");
         document.getElementById('adminSenha').style.display = 'none';
-        document.querySelector('.comentarios button').style.display = 'none';
+        document.querySelector('#admin-login button').style.display = 'none';
         exibirComentarios();
     } else {
         alert("Senha incorreta.");
@@ -75,7 +90,7 @@ function exibirComentarios() {
         comentariosHTML += `
             <p id="comentario-${index}">
                 <strong>${comentario.nome}:</strong> ${comentario.texto}
-                ${adminLogado ? `<button onclick="excluirComentario(${index})">Excluir</button>` : ''}
+                ${adminLogado || comentario.nome === document.getElementById('nome').value ? `<button onclick="excluirComentario(${index})">Excluir</button>` : ''}
             </p>
         `;
     });
@@ -133,3 +148,13 @@ function carregarVersiculo() {
 carregarVersiculo();
 verificarHorario();
 exibirComentarios();
+exibirVersiculoAnterior();
+
+// Contador de Visualizações
+function atualizarContador() {
+    contadorVisualizacoes++;
+    localStorage.setItem('visualizacoes', contadorVisualizacoes);
+    document.getElementById('contador').textContent = contadorVisualizacoes;
+}
+
+atualizarContador();
