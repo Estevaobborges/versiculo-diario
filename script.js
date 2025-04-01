@@ -70,13 +70,18 @@ let adminLogado = false;
 const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
 let contadorVisualizacoes = parseInt(localStorage.getItem('visualizacoes')) || 0;
 
+// Login do Administrador (Popup)
+function mostrarPopupLogin() {
+    document.getElementById('popup-login').style.display = 'block';
+}
+
 function loginAdmin() {
-    const senha = document.getElementById('adminSenha').value;
+    const senha = document.getElementById('senha-admin').value;
     if (senha === senhaAdmin) {
         adminLogado = true;
         alert("Login bem-sucedido!");
-        document.getElementById('adminSenha').style.display = 'none';
-        document.querySelector('#admin-login button').style.display = 'none';
+        document.getElementById('popup-login').style.display = 'none';
+        document.getElementById('admin-login').style.display = 'none';
         exibirComentarios();
     } else {
         alert("Senha incorreta.");
