@@ -156,43 +156,47 @@
             color: #555;
         }
 
-        #admin-login {
-            position: fixed;
-            bottom: 10px;
+        #alternar-tema {
+            position: absolute;
+            top: 10px;
             right: 10px;
-            display: flex;
-            align-items: center;
         }
 
-        #admin-login button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        /* Estilos para o novo modal de login */
+        .modal {
+            display: none; /* Inicialmente escondido */
+            position: fixed; /* Fixado na tela */
+            z-index: 1; /* Sobre outros elementos */
+            left: 0;
+            top: 0;
+            width: 100%; /* Largura total */
+            height: 100%; /* Altura total */
+            overflow: auto; /* Habilita rolagem se necessário */
+            background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
         }
 
-        #admin-login button:hover {
-            background-color: #2980b9;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
+        .modal-conteudo {
+            background-color: #fefefe;
+            margin: 15% auto; /* Centraliza verticalmente e horizontalmente */
             padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Largura do conteúdo */
+            max-width: 400px; /* Largura máxima */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .popup input {
-            margin-bottom: 10px;
+        .fechar {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .fechar:hover, .fechar:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         /* Estilos para telas menores (smartphones) */
@@ -229,4 +233,57 @@
                 width: 90%; /* Ajusta a largura do popup */
             }
         }
-    </
+    </style>
+</head>
+<body class="claro">
+    <div>
+        <div id="alternar-tema">
+            <button onclick="alternarTema()">Alternar Tema</button>
+        </div>
+
+        <button id="btn-login">Login Admin</button>
+
+        <div id="modal-login" class="modal">
+            <div class="modal-conteudo">
+                <span class="fechar">&times;</span>
+                <label for="senha-admin">Senha do Administrador:</label>
+                <input type="password" id="senha-admin" placeholder="Senha">
+                <button onclick="loginAdmin()">Entrar</button>
+            </div>
+        </div>
+
+        <h1>Versículo do Dia</h1>
+
+        <h2>Versículo</h2>
+        <p id="versiculo">Carregando...</p>
+        <p id="versiculoAnterior"></p>
+
+        <h2>Reflexão</h2>
+        <p id="reflexao">Carregando...</p>
+
+        <div class="reacoes">
+            <button onclick="curtir()" aria-label="Curtir">Curtir  <span id="contador-curtir">0</span></button>
+            <button onclick="amei()" aria-label="Amei">Amei ❤️ <span id="contador-amei">0</span></button>
+            <button onclick="meTocou()" aria-label="Me Tocou">Me Tocou  <span id="contador-me-tocou">0</span></button>
+        </div>
+
+        <footer>
+            Visualizações: <span id="contador">0</span>
+        </footer>
+
+        <div class="comentarios">
+            <h3>Comente ou compartilhe seu testemunho:</h3>
+            <label for="nome">Seu nome:</label>
+            <input type="text" id="nome" placeholder="Seu nome">
+            <label for="comentario">Seu comentário ou testemunho:</label>
+            <textarea id="comentario" placeholder="Seu comentário ou testemunho"></textarea>
+            <button onclick="enviarComentario()">Enviar</button>
+            <div id="lista-comentarios">
+                <h3>Comentários:</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
