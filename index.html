@@ -17,7 +17,7 @@
             background-color: #f0f8ff;
             color: #333;
             transition: background-color 0.3s, color 0.3s;
-            background-image: url('URL_DA_SUA_IMAGEM');
+            background-image: url('URL_DA_IMAGEM_CLARA');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -26,6 +26,7 @@
         body.escuro {
             background-color: #2c3e50;
             color: #ecf0f1;
+            background-image: url('URL_DA_IMAGEM_ESCURA');
         }
 
         div {
@@ -37,10 +38,18 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        body.escuro div {
+            background-color: rgba(44, 62, 80, 0.9);
+        }
+
         h1 {
             color: #3498db;
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        body.escuro h1 {
+            color: #81ecec;
         }
 
         h2 {
@@ -48,13 +57,22 @@
             margin-top: 20px;
         }
 
+        body.escuro h2 {
+            color: #a29bfe;
+        }
+
         p {
             font-size: 1.1em;
             line-height: 1.6;
             padding: 15px;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: rgba(255, 255, 255, 0.8);
             margin-bottom: 20px;
+        }
+
+        body.escuro p {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: #dff9fb;
         }
 
         .reacoes {
@@ -119,8 +137,17 @@
             margin-bottom: 10px;
         }
 
+        body.escuro .comentarios p {
+            background-color: #34495e;
+            color: #dff9fb;
+        }
+
         .comentarios h3 {
             color: #27ae60;
+        }
+
+        body.escuro .comentarios h3 {
+            color: #a29bfe;
         }
 
         label {
@@ -130,18 +157,55 @@
         }
 
         #admin-login {
-            position: absolute;
-            top: 10px;
+            position: fixed;
+            bottom: 10px;
             right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        #admin-login button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #admin-login button:hover {
+            background-color: #2980b9;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .popup input {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body class="claro">
     <div>
         <div id="admin-login">
-            <label for="adminSenha">Senha do Administrador:</label>
-            <input type="password" id="adminSenha" placeholder="Senha">
-            <button onclick="loginAdmin()">Login</button>
+            <button onclick="mostrarPopupLogin()">Login Admin</button>
+        </div>
+
+        <div id="popup-login" class="popup">
+            <label for="senha-admin">Senha do Administrador:</label>
+            <input type="password" id="senha-admin" placeholder="Senha">
+            <button onclick="loginAdmin()">Entrar</button>
         </div>
 
         <h1>Versículo do Dia</h1>
