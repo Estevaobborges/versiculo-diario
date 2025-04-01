@@ -53,7 +53,7 @@ function meTocou() {
 // Comentários
 let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
 let adminLogado = false;
-const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
+const senhaAdmin = "sousdl11"; // Substitua pela sua senha
 
 function loginAdmin() {
     const senha = document.getElementById('adminSenha').value;
