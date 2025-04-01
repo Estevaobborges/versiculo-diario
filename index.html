@@ -15,12 +15,16 @@
             height: 100vh;
             text-align: center;
             background-color: #f4f4f4;
+            background-image: url('https://www.example.com/imagem-de-fundo.jpg'); /* Substitua com o link da sua imagem */
+            background-size: cover;
+            background-position: center;
             transition: background-color 0.5s, color 0.5s;
         }
 
         body.escuro {
             background-color: #2c3e50;
             color: #fff;
+            background-image: url('https://i.pinimg.com/736x/cc/cb/2a/cccb2ae2952d446eafbb5f3e00d30d3f.jpg'); /* Substitua com o link da sua imagem para o tema escuro */
         }
 
         h1 {
@@ -129,7 +133,7 @@
         <p id="versiculo"></p>
 
         <div class="reacoes">
-            <button onclick="reagir('❤️')">AMEI ❤️</button>
+            <button onclick="reagir('❤️')">Amei ❤️</button>
             <button onclick="reagir('😢')">Me tocou 😢</button>
             <button onclick="reagir('👍')">Curtir 👍</button>
         </div>
