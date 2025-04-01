@@ -109,7 +109,7 @@ function exibirComentarios() {
         comentariosHTML += `
             <p id="comentario-${index}">
                 <strong>${comentario.nome}:</strong> ${comentario.texto}
-                ${adminLogado || comentario.nome === document.getElementById('nome').value ? `<button onclick="excluirComentario(${index})">Excluir</button>` : ''}
+                ${adminLogado || comentario.autor === document.getElementById('nome').value ? `<button onclick="excluirComentario(${index})">Excluir</button>` : ''}
             </p>
         `;
     });
@@ -127,7 +127,7 @@ function enviarComentario() {
     const texto = document.getElementById('comentario').value;
 
     if (nome && texto) {
-        comentarios.push({ nome, texto });
+        comentarios.push({ nome, texto, autor: nome }); // Adiciona o autor ao comentário
         localStorage.setItem('comentarios', JSON.stringify(comentarios));
         document.getElementById('nome').value = '';
         document.getElementById('comentario').value = '';
