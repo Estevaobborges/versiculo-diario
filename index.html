@@ -131,6 +131,7 @@
     <div>
         <h1>Versículo do Dia</h1>
         <p id="versiculo"></p>
+        <p id="reflexao"></p>
 
         <div class="reacoes">
             <button onclick="reagir('❤️')">AMEI ❤️</button>
@@ -156,38 +157,40 @@
         // Função para carregar o versículo do dia
         function carregarVersiculo() {
             const versiculo = localStorage.getItem('versiculoDoDia');
-            if (versiculo) {
+            const reflexao = localStorage.getItem('reflexaoDoDia');
+            if (versiculo && reflexao) {
                 document.getElementById('versiculo').textContent = versiculo;
-                gerarComentarioAutomatico(versiculo);
+                document.getElementById('reflexao').textContent = reflexao;
             } else {
-                // Se não houver versículo armazenado, chama a função para obter um novo versículo
                 obterVersiculo();
             }
         }
 
-        // Função para pegar um versículo da API da Bíblia
+        // Função para pegar versículos do arquivo JSON
         async function obterVersiculo() {
             try {
-                const response = await fetch('https://api.bible.com/v1/verses/random?translation=PTB');
+                const response = await fetch('versiculos.json');
                 const data = await response.json();
-                const versiculoDoDia = data.versicle.text;
-                localStorage.setItem('versiculoDoDia', versiculoDoDia);
-                document.getElementById('versiculo').textContent = versiculoDoDia;
-                gerarComentarioAutomatico(versiculoDoDia);
+                const dataAtual = new Date();
+                const dia = dataAtual.getDate();
+                const versiculoDoDia = data[dia % data.length];
+                const versiculo = versiculoDoDia.versiculo;
+                const reflexao = versiculoDoDia.reflexao;
+
+                localStorage.setItem('versiculoDoDia', versiculo);
+                localStorage.setItem('reflexaoDoDia', reflexao);
+
+                document.getElementById('versiculo').textContent = versiculo;
+                document.getElementById('reflexao').textContent = reflexao;
             } catch (error) {
                 console.error('Erro ao obter versículo:', error);
-                // Se a API falhar, usa um versículo padrão
                 const versiculoPadrao = "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crer não pereça, mas tenha a vida eterna. - João 3:16";
+                const reflexaoPadrao = "Este versículo nos lembra do imenso amor de Deus por nós. Ele nos oferece a vida eterna através de Jesus Cristo.";
                 localStorage.setItem('versiculoDoDia', versiculoPadrao);
+                localStorage.setItem('reflexaoDoDia', reflexaoPadrao);
                 document.getElementById('versiculo').textContent = versiculoPadrao;
-                gerarComentarioAutomatico(versiculoPadrao);
+                document.getElementById('reflexao').textContent = reflexaoPadrao;
             }
-        }
-
-        // Gerar um comentário automático com base no versículo
-        function gerarComentarioAutomatico(versiculo) {
-            const comentario = `Reflexão sobre o versículo de hoje: "${versiculo}" - Como ele fala diretamente ao nosso coração, nos lembrando do amor divino que é infinito e imensurável.`;
-            document.getElementById('comentario').value = comentario;
         }
 
         // Alternar entre tema claro e escuro
@@ -224,9 +227,9 @@
             const ultimaAtualizacao = localStorage.getItem('ultimaAtualizacao');
             const dataAtual = new Date();
 
-            // Se já passou da meia-noite ou ainda não foi atualizado
             if (!ultimaAtualizacao || new Date(ultimaAtualizacao).getDate() !== dataAtual.getDate()) {
                 localStorage.removeItem('versiculoDoDia');
+                localStorage.removeItem('reflexaoDoDia');
                 localStorage.setItem('ultimaAtualizacao', dataAtual);
                 obterVersiculo();
             }
