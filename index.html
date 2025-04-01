@@ -190,15 +190,22 @@
         }
 
         .social-buttons a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             margin: 0 10px;
-            font-size: 1.5em;
+            font-size: 1em;
             color: #3498db;
             text-decoration: none;
         }
 
         .social-buttons a:hover {
             color: #2980b9;
+        }
+
+        .social-buttons img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
         }
 
         /* Estilos para o novo modal de login */
@@ -320,8 +327,12 @@
         <p>&copy; 2023 Versículo do Dia. Todos os direitos reservados.</p>
         <p>Desenvolvido com amor.</p>
         <div class="social-buttons">
-            <a href="https://www.instagram.com/teulaser/" aria-label="Instagram">Instagram</a>
-            <a href="https://api.whatsapp.com/message/UNK4SI6EUM6NM1?autoload=1&app_absent=0" aria-label="WhatsApp">WhatsApp</a>
+            <a href="https://www.instagram.com/teulaser/" aria-label="Instagram">
+                <img src="imagens/instagram-logo.png" alt="Instagram">
+            </a>
+            <a href="https://api.whatsapp.com/message/UNK4SI6EUM6NM1?autoload=1&app_absent=0" aria-label="WhatsApp">
+                <img src="imagens/whatsapp-logo.png" alt="WhatsApp">
+            </a>
         </div>
     </footer>
     <script src="script.js"></script>
