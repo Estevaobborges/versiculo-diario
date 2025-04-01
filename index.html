@@ -9,7 +9,7 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
-            background-image: url('https://i.pinimg.com/1200x/47/a4/ff/47a4fffbc98e58619e42a8eb0fc4e609.jpg'); /* Insira o link de uma imagem religiosa aqui */
+            background-image: url('https://i.pinimg.com/736x/5e/ed/c6/5eedc6af4814aded8cd37db9d9aebba9.jpg'); /* Insira o link de uma imagem religiosa aqui */
             background-size: cover;
             background-position: center;
             margin: 0;
@@ -80,7 +80,10 @@
     <div>
         <h1>Versículo do Dia</h1>
         <p id="versiculo"></p>
-        <button onclick="mostrarVersiculoAleatorio()">Versículo Aleatório</button>
+        <!-- Botões de compartilhamento -->
+        <button onclick="compartilharWhatsapp()">Compartilhar no WhatsApp</button>
+        <button onclick="compartilharFacebook()">Compartilhar no Facebook</button>
+        <button onclick="baixarImagem()">Baixar Imagem para Story do Instagram</button>
 
         <footer>&copy; 2025 - Todos os direitos reservados</footer>
     </div>
@@ -92,16 +95,83 @@
             "Porque eu bem sei os planos que estou planejando para vós, diz o Senhor, planos de paz, e não de mal, para vos dar um futuro e uma esperança. - Jeremias 29:11"
         ];
 
-        const dataAtual = new Date();
-        const dia = dataAtual.getDate();
-        const versiculoDoDia = versiculos[dia % versiculos.length];
-
-        document.getElementById('versiculo').textContent = versiculoDoDia;
-
-        function mostrarVersiculoAleatorio() {
-            const aleatorio = versiculos[Math.floor(Math.random() * versiculos.length)];
-            document.getElementById('versiculo').textContent = aleatorio;
+        function obterVersiculoDoDia() {
+            const dataAtual = new Date();
+            const dia = dataAtual.getDate();
+            const versiculoDoDia = versiculos[dia % versiculos.length];
+            return versiculoDoDia;
         }
+
+        function exibirVersiculo() {
+            // Se já houver um versículo armazenado, exibe ele
+            const versiculo = localStorage.getItem('versiculoDoDia');
+            if (versiculo) {
+                document.getElementById('versiculo').textContent = versiculo;
+            } else {
+                // Se não, define o versículo do dia e armazena no localStorage
+                const versiculoDoDia = obterVersiculoDoDia();
+                localStorage.setItem('versiculoDoDia', versiculoDoDia);
+                document.getElementById('versiculo').textContent = versiculoDoDia;
+            }
+        }
+
+        // Função de compartilhamento no WhatsApp
+        function compartilharWhatsapp() {
+            const versiculo = localStorage.getItem('versiculoDoDia');
+            const textoCompartilhar = encodeURIComponent(`Versículo do Dia: ${versiculo}`);
+            const url = `https://api.whatsapp.com/send?text=${textoCompartilhar}`;
+            window.open(url, 'whatsapp-share', 'width=600,height=400');
+        }
+
+        // Função de compartilhamento no Facebook
+        function compartilharFacebook() {
+            const versiculo = localStorage.getItem('versiculoDoDia');
+            const textoCompartilhar = encodeURIComponent(`Versículo do Dia: ${versiculo}`);
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${textoCompartilhar}`;
+            window.open(url, 'facebook-share', 'width=600,height=400');
+        }
+
+        // Função para baixar a imagem para o Instagram Stories
+        function baixarImagem() {
+            const versiculo = localStorage.getItem('versiculoDoDia');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 1080; // Largura para Instagram
+            canvas.height = 1920; // Altura para Instagram
+
+            // Definir o fundo
+            const img = new Image();
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'white';
+                ctx.font = '40px Arial';
+                ctx.fillText(versiculo, 50, 1000); // Colocando o versículo na imagem
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'versiculo_do_dia.png';
+                link.click();
+            };
+            img.src = 'https://i.pinimg.com/736x/5e/ed/c6/5eedc6af4814aded8cd37db9d9aebba9.jpg'; // Link para a imagem de fundo (substitua)
+        }
+
+        // Atualiza o versículo à meia-noite
+        function atualizarVersiculoDiario() {
+            const dataAtual = new Date();
+            const horaAtual = dataAtual.getHours();
+            const minutoAtual = dataAtual.getMinutes();
+            const segundoAtual = dataAtual.getSeconds();
+
+            // Se for meia-noite, atualiza o versículo
+            if (horaAtual === 0 && minutoAtual === 0 && segundoAtual === 0) {
+                const versiculoDoDia = obterVersiculoDoDia();
+                localStorage.setItem('versiculoDoDia', versiculoDoDia);
+                document.getElementById('versiculo').textContent = versiculoDoDia;
+            }
+        }
+
+        // Chama as funções
+        exibirVersiculo();
+        setInterval(atualizarVersiculoDiario, 1000); // Verifica se é meia-noite a cada segundo
     </script>
 </body>
 </html>
