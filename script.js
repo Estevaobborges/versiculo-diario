@@ -52,14 +52,40 @@ function meTocou() {
 
 // Comentários
 let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+let adminLogado = false;
+const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
+
+function loginAdmin() {
+    const senha = document.getElementById('adminSenha').value;
+    if (senha === senhaAdmin) {
+        adminLogado = true;
+        alert("Login bem-sucedido!");
+        document.getElementById('adminSenha').style.display = 'none';
+        document.querySelector('.comentarios button').style.display = 'none';
+        exibirComentarios();
+    } else {
+        alert("Senha incorreta.");
+    }
+}
 
 function exibirComentarios() {
     const listaComentarios = document.getElementById('lista-comentarios');
     let comentariosHTML = '<h3>Comentários:</h3>';
-    comentarios.forEach(comentario => {
-        comentariosHTML += `<p><strong>${comentario.nome}:</strong> ${comentario.texto}</p>`;
+    comentarios.forEach((comentario, index) => {
+        comentariosHTML += `
+            <p id="comentario-${index}">
+                <strong>${comentario.nome}:</strong> ${comentario.texto}
+                ${adminLogado ? `<button onclick="excluirComentario(${index})">Excluir</button>` : ''}
+            </p>
+        `;
     });
     listaComentarios.innerHTML = comentariosHTML;
+}
+
+function excluirComentario(index) {
+    comentarios.splice(index, 1);
+    localStorage.setItem('comentarios', JSON.stringify(comentarios));
+    exibirComentarios();
 }
 
 function enviarComentario() {
@@ -71,7 +97,7 @@ function enviarComentario() {
         localStorage.setItem('comentarios', JSON.stringify(comentarios));
         document.getElementById('nome').value = '';
         document.getElementById('comentario').value = '';
-        exibirComentarios(); // Atualiza a exibição dos comentários
+        exibirComentarios();
     } else {
         alert('Por favor, preencha o nome e o comentário.');
     }
