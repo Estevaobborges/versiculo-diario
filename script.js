@@ -44,9 +44,9 @@ btnAlternarTema.addEventListener('click', () => {
 });
 
 // Reações
-let contadorCurtir = parseInt(localStorage.getItem('contadorCurtir')) || 0;
-let contadorAmei = parseInt(localStorage.getItem('contadorAmei')) || 0;
-let contadorMeTocou = parseInt(localStorage.getItem('contadorMeTocou')) || 0;
+let contadorCurtir = 0;
+let contadorAmei = 0;
+let contadorMeTocou = 0;
 
 // Exibir contadores iniciais
 document.getElementById('contador-curtir').textContent = contadorCurtir;
@@ -210,7 +210,7 @@ exibirComentarios();
 exibirVersiculoAnterior();
 
 // Contador de Visualizações
-let contadorVisualizacoes = parseInt(localStorage.getItem('visualizacoes')) || 0;
+let contadorVisualizacoes = 0;
 
 function atualizarContador() {
     contadorVisualizacoes++;
