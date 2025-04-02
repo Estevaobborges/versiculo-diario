@@ -74,7 +74,7 @@ function meTocou() {
 // Comentários
 let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
 let adminLogado = false;
-const senhaAdmin = "suaSenhaSecreta"; // Substitua pela sua senha
+const senhaAdmin = "Sousdl11@"; // Substitua pela sua senha
 let contadorCliquesEnviar = 0; // Contador de cliques no botão "Enviar"
 
 // Login do Administrador (Modal)
