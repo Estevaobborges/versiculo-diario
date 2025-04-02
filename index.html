@@ -166,14 +166,20 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 2em; /* Dobrando o tamanho do ícone */
+            font-size: 1em; /* Reduzindo o tamanho do texto */
             padding: 0.5em;
             position: absolute;
             top: 10px;
-            left: 10px; /* Alterando para a esquerda */
+            right: 10px; /* Alterando para a direita */
             transition: transform 0.3s ease-in-out;
             display: flex;
             align-items: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Adicionando fundo */
+            border-radius: 5px;
+        }
+
+        body.escuro #alternar-tema-btn {
+            background-color: rgba(44, 62, 80, 0.8); /* Alterando fundo no tema escuro */
         }
 
         #alternar-tema-btn:hover {
@@ -181,6 +187,7 @@
         }
 
         #alternar-tema-btn span {
+            font-size: 2em; /* Dobrando o tamanho do ícone */
             margin-left: 8px; /* Espaço entre o texto e o ícone */
         }
 
@@ -198,6 +205,8 @@
 
         .social-buttons {
             margin-top: 20px;
+            display: flex; /* Adicionando flexbox */
+            justify-content: center; /* Centralizando os botões */
         }
 
         .social-buttons a {
@@ -304,6 +313,7 @@
             transition: background-color 0.3s;
             display: flex;
             align-items: center;
+            margin: 0 10px; /* Adicionando margem */
         }
 
         #btn-login i {
@@ -350,7 +360,15 @@
         </div>
     </div>
     <footer>
-        <button id="btn-login"><i class="fas fa-user-lock"></i> Login</button>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/teulaser/" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://api.whatsapp.com/message/UNK4SI6EUM6NM1?autoload=1&app_absent=0" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <button id="btn-login"><i class="fas fa-user-lock"></i> Login</button>
+        </div>
         <div id="modal-login" class="modal">
             <div class="modal-conteudo">
                 <span class="fechar">&times;</span>
@@ -362,14 +380,6 @@
         <p>Visualizações: <span id="contador-visualizacoes">0</span></p>
         <p>&copy; 2025 Teu Laser/Tainah Joias-Versículo do dia. Todos os direitos reservados.</p>
         <p>Desenvolvido com amor.</p>
-        <div class="social-buttons">
-            <a href="https://www.instagram.com/teulaser/" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://api.whatsapp.com/message/UNK4SI6EUM6NM1?autoload=1&app_absent=0" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
     </footer>
     <script src="script.js"></script>
 </body>
