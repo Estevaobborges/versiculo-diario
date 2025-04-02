@@ -36,7 +36,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
+            margin: 80px auto; /* Aumentando a margem superior */
         }
 
         body.escuro div {
@@ -213,7 +213,7 @@
             display: inline-flex;
             align-items: center;
             margin: 0 10px;
-            font-size: 1em;
+            font-size: 2em; /* Aumentando o tamanho dos ícones */
             color: #3498db;
             text-decoration: none;
         }
@@ -223,8 +223,7 @@
         }
 
         .social-buttons i {
-            font-size: 30px;
-            color: #3498db;
+            font-size: 1em; /* Ajustando o tamanho dos ícones */
         }
 
         .social-buttons a:hover i {
@@ -304,24 +303,29 @@
         }
 
         #btn-login {
-            background: linear-gradient(to right, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            background: none; /* Removendo o fundo */
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 0; /* Removendo o padding */
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
             display: flex;
             align-items: center;
             margin: 0 10px; /* Adicionando margem */
+            font-size: 2em; /* Aumentando o tamanho do ícone */
         }
 
         #btn-login i {
-            margin-right: 8px;
+            margin: 0; /* Removendo a margem interna do ícone */
+        }
+
+        #btn-login span {
+            display: none; /* Removendo o texto "Login" */
         }
 
         #btn-login:hover {
-            background: linear-gradient(to right, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040);
+            background: none; /* Removendo o fundo no hover */
         }
     </style>
 </head>
@@ -367,7 +371,7 @@
             <a href="https://api.whatsapp.com/message/UNK4SI6EUM6NM1?autoload=1&app_absent=0" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
-            <button id="btn-login"><i class="fas fa-user-lock"></i> Login</button>
+            <button id="btn-login"><i class="fas fa-user-lock"></i><span>Login</span></button>
         </div>
         <div id="modal-login" class="modal">
             <div class="modal-conteudo">
