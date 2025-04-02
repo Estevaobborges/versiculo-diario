@@ -31,7 +31,7 @@ function obterVersiculo() {
 function exibirVersiculoAnterior() {
     const versiculoAnterior = localStorage.getItem('versiculoAnterior');
     if (versiculoAnterior) {
-        document.getElementById('versiculoAnterior').textContent = `Versículo do Dia Anterior: ${versiculoAnterior}`;
+        document.getElementById('versiculoAnterior').innerHTML = `<h3>Versículo do Dia Anterior:</h3><p>${versiculoAnterior}</p>`;
     }
 }
 
