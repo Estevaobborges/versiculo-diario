@@ -166,16 +166,22 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 1.5em;
+            font-size: 2em; /* Dobrando o tamanho do ícone */
             padding: 0.5em;
             position: absolute;
             top: 10px;
-            right: 10px;
+            left: 10px; /* Alterando para a esquerda */
             transition: transform 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
         }
 
         #alternar-tema-btn:hover {
             transform: scale(1.1);
+        }
+
+        #alternar-tema-btn span {
+            margin-left: 8px; /* Espaço entre o texto e o ícone */
         }
 
         .tema-escuro {
@@ -287,12 +293,33 @@
                 width: 90%;
             }
         }
+
+        #btn-login {
+            background: linear-gradient(to right, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        #btn-login i {
+            margin-right: 8px;
+        }
+
+        #btn-login:hover {
+            background: linear-gradient(to right, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040);
+        }
     </style>
 </head>
 <body class="claro">
     <button id="alternar-tema-btn" aria-label="Alternar tema">
+        Mudar tema
         <span class="tema-claro">☀️</span>
-        <span class="tema-escuro">🌑</span>
+        <span class="tema-escuro"></span>
     </button>
     <div>
         <h1>Versículo do Dia</h1>
@@ -323,7 +350,7 @@
         </div>
     </div>
     <footer>
-        <button id="btn-login">Login</button>
+        <button id="btn-login"><i class="fas fa-user-lock"></i> Login</button>
         <div id="modal-login" class="modal">
             <div class="modal-conteudo">
                 <span class="fechar">&times;</span>
