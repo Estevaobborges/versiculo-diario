@@ -299,7 +299,6 @@
 
         <h2>Versículo</h2>
         <p id="versiculo">Carregando...</p>
-        <p id="versiculoAnterior"></p>
 
         <h2>Reflexão</h2>
         <p id="reflexao">Carregando...</p>
@@ -320,10 +319,11 @@
             <div id="lista-comentarios">
                 <h3>Comentários:</h3>
             </div>
+            <p id="versiculoAnterior"></p>
         </div>
     </div>
     <footer>
-        <button id="btn-login" style="display: none;">Login Admin</button>
+        <button id="btn-login">Login Admin</button>
         <div id="modal-login" class="modal">
             <div class="modal-conteudo">
                 <span class="fechar">&times;</span>
@@ -332,6 +332,7 @@
                 <button onclick="loginAdmin()">Entrar</button>
             </div>
         </div>
+        <p>Visualizações: <span id="contador-visualizacoes">0</span></p>
         <p>&copy; 2023 Versículo do Dia. Todos os direitos reservados.</p>
         <p>Desenvolvido com amor.</p>
         <div class="social-buttons">
